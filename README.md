@@ -1,17 +1,8 @@
-# Rekamy Generator
-
-<p>
-<a href="https://packagist.org/packages/rekamy/generator">
-<img class="total_img" src="https://poser.pugx.org/rekamy/generator/downloads">
-</a>
-<a href="https://github.com/Rekamy/ApiGenerator/blob/master/LICENSE.txt">
-<img class="license_img" src="https://poser.pugx.org/rekamy/generator/license">
-</a>
-</p>
+# DelyvaX SaaS
 
 ## Introduction
 
-This Generator will generate a complete SPA (Vue JS) CRUD along with the Swagger API Documentation.
+DelyvaX Saas SDK
 
 ## Table Of Contents
 
