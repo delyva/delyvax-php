@@ -1,0 +1,31 @@
+{
+    "name": "delyvax/saas",
+    "description": "Timezone List Plugin",
+    "license": "MIT",
+    "type": "library",
+    "keywords": [
+    ],
+    "require": {
+        "php": "^7.2 || ^8.0",
+        "laravel/framework": "^8.0 || ^7.0"
+    },
+    "authors": [
+        {
+            "name": "Firdaus Ishaddin",
+            "email": "firdausishaddin@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "autoload": {
+        "psr-4": {
+            "DelyvaX\\Saas\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "DelyvaX\\Saas\\TimezoneServiceProvider"
+            ]
+        }
+    }
+}
