@@ -2,7 +2,7 @@
 
 ## Introduction
 
-DelyvaX Saas SDK
+DelyvaX SaaS
 
 ## Table Of Contents
 
@@ -21,13 +21,13 @@ DelyvaX Saas SDK
 The recommended way to install Rekamy Generator is through Composer.
 
 ```bash
-composer require rekamy/generator
+composer require delyva/saas
 ```
 
 Next, you will need to publish the generator's config file by running :
 
 ```bash
-php artisan vendor:publish --provider "Rekamy\Generator\GeneratorServiceProvider"
+php artisan vendor:publish --provider "DelyvaX\Saas\SaasServiceProvider"
 ```
 
 ## Configuration
@@ -35,39 +35,35 @@ php artisan vendor:publish --provider "Rekamy\Generator\GeneratorServiceProvider
 Update the configuration file based on your needs.
 
 ```php
-// Setup your application name here(For Swagger Use).
-'app_name' => env('APP_NAME'),
+    /**
+     * DelyvaX Access Token
+     */
+    'delyva_access_token' => env('DELYVA_ACCESS_TOKEN', ''),
+    
+    /**
+     * DelyvaX Company Id
+     */
+    'delyva_company_id' => env('DELYVA_COMPANY_ID', ''), 
 
-// Which file would you like to generate. Set the value to false you don't want to generate.
-'generate' => [
-    // ...
-],
+    /**
+     * DelyvaX Customer ID
+     */
+    'delyva_customer_id' => env('DELYVA_CUSTOMER_ID', ''), 
 
-// Database configuration. Set your database name here or from .env and exclude any tables you don't want to generate
-'database' => [
-    // Database name
-    'name'           => env('DB_DATABASE'),
+    /**
+     * DelyvaX Endpoint
+     */
+    'delyva_endpoint' => env('DELYVA_ENDPOINT', 'https://api.delyva.app/v1.0/'),
 
-    // Exclude table name
-    'exclude_tables' => [
-        // ...
-    ]
-],
+    /**
+     * DelyvaX CDN Endpoint
+     */
+    'delyva_cdn_endpoint' => env('DELYVA_CDN_ENDPOINT', 'https://cdn.delyva.app/'), 
 
-// Path is where you want the generator to generate.
-'path' => [
-    // ...
-],
-
-// Namespace for the generated files.
-'namespace' => [
-    // ...
-],
-
-// options is an add on you can disable these options by setting the value to false
-'options' => [
-    // ...
-]
+    /**
+     * DelyvaX Company Code
+     */
+    'delyva_company_code' => env('DELYVA_COMPANY_CODE', 'my')
 ```
 
 ## Usage
@@ -75,21 +71,9 @@ Update the configuration file based on your needs.
 (Optional) Publish configuration :
 
 ```bash
-php artisan vendor:publish --tag="rekamygenerator"
+php artisan vendor:publish --tag="saas"
 ```
-
-In order to run the generator after configuration, you can run it via :
-
-```bash
-php artisan generate
-```
-
-
-## Todo
-
-- handle table name ending with 's'
-- progress bar as per Razlan done in previous version
 
 ## License
 
-Rekamy Generator is open-sourced software licensed under the MIT license
+DelyvaX SaaS is open-sourced software licensed under the MIT license
