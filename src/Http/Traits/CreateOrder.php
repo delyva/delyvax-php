@@ -31,15 +31,13 @@ trait CreateOrder
 
     public function printLabel($orderId)
     {
-        $url = config('saas.delyva_endpoint') . 'order/' . $orderId . '/label?companyId=' . config('saas.delyva_company_id');
+        $url = config('saas.delyva_endpoint') . "order/{$orderId}/label?companyId=" . config('saas.delyva_company_id');
 
         echo "<script>window.open('" . $url . "', '_blank')</script>";
     }
 
     public function cancelOrder($orderId, $hydrate = false)
     {
-        $url = config('saas.delyva_endpoint') . 'order/' . $orderId . '/cancel';
-
         $body = [
             'headers' => [
                 'Content-type' => 'application/json',
@@ -51,7 +49,7 @@ trait CreateOrder
             'verify' => false
         ]);
 
-        $response = $client->request('POST', $url, $body);
+        $response = $client->request('POST', config('saas.delyva_endpoint') . "order/{$orderId}/cancel", $body);
 
         $response = json_decode($response->getBody(), $hydrate);
 
@@ -61,8 +59,6 @@ trait CreateOrder
     
     public function confirmOrder($orderId, $hydrate = false)
     {
-        $url = config('saas.delyva_endpoint') . 'order/' . $orderId . '/process';
-
         $body = [
             'headers' => [
                 'Content-type' => 'application/json',
@@ -74,7 +70,7 @@ trait CreateOrder
             'verify' => false
         ]);
 
-        $response = $client->request('POST', $url, $body);
+        $response = $client->request('POST', config('saas.delyva_endpoint') . "order/{$orderId}/process", $body);
 
         $response = json_decode($response->getBody(), $hydrate);
 
@@ -83,8 +79,6 @@ trait CreateOrder
     
     public function orderDetails($orderId, $hydrate = false)
     {
-        $url = config('saas.delyva_endpoint') . 'order/' . $orderId;
-
         $body = [
             'headers' => [
                 'Content-type' => 'application/json',
@@ -96,7 +90,7 @@ trait CreateOrder
             'verify' => false
         ]);
 
-        $response = $client->request('GET', $url, $body);
+        $response = $client->request('GET', config('saas.delyva_endpoint') . "order/{$orderId}", $body);
 
         $response = json_decode($response->getBody(), $hydrate);
 

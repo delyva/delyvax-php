@@ -8,7 +8,7 @@ trait Tracking
 {
     public function orderHistory($consignmentNo, $hydrate = false)
     {
-        $url = config('saas.delyva_endpoint') . 'order/track/' . $consignmentNo . '?companyId=' . config('saas.delyva_company_id');
+        $url = config('saas.delyva_endpoint') . "order/track/{$consignmentNo}?companyId=" . config('saas.delyva_company_id');
 
         $body = [
             'headers' => [

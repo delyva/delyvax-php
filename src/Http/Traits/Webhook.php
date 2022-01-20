@@ -29,8 +29,6 @@ trait Webhook
 
     public function listWebhooks($hydrate = false)
     {
-        $url = config('saas.delyva_endpoint') . 'webhook';
-
         $body = [
             'headers' => [
                 'Content-type' => 'application/json',
@@ -42,7 +40,7 @@ trait Webhook
             'verify' => false
         ]);
 
-        $response = $client->request('GET', $url, $body);
+        $response = $client->request('GET', config('saas.delyva_endpoint') . 'webhook', $body);
 
         $response = json_decode($response->getBody(), $hydrate);
 
@@ -51,8 +49,6 @@ trait Webhook
 
     public function webhook($webhookId, $event, $url, $hydrate = false)
     {
-        $url = config('saas.delyva_endpoint') . 'webhook/' . $webhookId . '?retrieve=queue';
-
         $body = [
             'headers' => [
                 'Content-type' => 'application/json',
@@ -68,7 +64,7 @@ trait Webhook
             'verify' => false
         ]);
 
-        $response = $client->request('GET', $url, $body);
+        $response = $client->request('GET', config('saas.delyva_endpoint') . "webhook/{$webhookId}?retrieve=queue", $body);
 
         $response = json_decode($response->getBody(), $hydrate);
 
@@ -77,8 +73,6 @@ trait Webhook
 
     public function updateWebhook($webhookId, $event, $url, $hydrate = false)
     {
-        $url = config('saas.delyva_endpoint') . 'webhook/' . $webhookId . '?retrieve=queue';
-
         $body = [
             'headers' => [
                 'Content-type' => 'application/json',
@@ -94,7 +88,7 @@ trait Webhook
             'verify' => false
         ]);
 
-        $response = $client->request('PATCH', $url, $body);
+        $response = $client->request('PATCH', config('saas.delyva_endpoint') . "webhook/{$webhookId}?retrieve=queue", $body);
 
         $response = json_decode($response->getBody(), $hydrate);
 
