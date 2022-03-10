@@ -1,15 +1,13 @@
 <?php
 
-namespace Delyvax\Delyva\Http\Services;
+namespace Delyvax\Delyva\Services;
 
 use GuzzleHttp\Client;
 
-class CreateOrder
+class Webhook
 {
-    public function createOrder($data, $hydrate = false)
+    public function subscribe($data, $hydrate = false)
     {
-        $data['customerId'] = config('delyva.delyva_customer_id');
-
         $body = [
             'headers' => [
                 'Content-type' => 'application/json',
@@ -22,21 +20,14 @@ class CreateOrder
             'verify' => false
         ]);
 
-        $response = $client->request('POST', config('delyva.delyva_endpoint') . "order", $body);
+        $response = $client->request('POST', config('delyva.delyva_endpoint') . 'webhook', $body);
 
         $response = json_decode($response->getBody(), $hydrate);
 
         return $response;
     }
 
-    public function printLabel($orderId)
-    {
-        $url = config('delyva.delyva_endpoint') . "order/{$orderId}/label?companyId=" . config('delyva.delyva_company_id');
-
-        echo "<script>window.open('" . $url . "', '_blank')</script>";
-    }
-
-    public function cancelOrder($orderId, $hydrate = false)
+    public function listWebhooks($hydrate = false)
     {
         $body = [
             'headers' => [
@@ -49,20 +40,23 @@ class CreateOrder
             'verify' => false
         ]);
 
-        $response = $client->request('POST', config('delyva.delyva_endpoint') . "order/{$orderId}/cancel", $body);
+        $response = $client->request('GET', config('delyva.delyva_endpoint') . 'webhook', $body);
 
         $response = json_decode($response->getBody(), $hydrate);
 
         return $response;
     }
 
-
-    public function confirmOrder($orderId, $hydrate = false)
+    public function webhook($webhookId, $event, $url, $hydrate = false)
     {
         $body = [
             'headers' => [
                 'Content-type' => 'application/json',
                 'X-Delyvax-Access-Token' => config('delyva.delyva_access_token')
+            ],
+            'json'    => [
+                'event' => $event,
+                'url' => $url
             ]
         ];
 
@@ -70,19 +64,23 @@ class CreateOrder
             'verify' => false
         ]);
 
-        $response = $client->request('POST', config('delyva.delyva_endpoint') . "order/{$orderId}/process", $body);
+        $response = $client->request('GET', config('delyva.delyva_endpoint') . "webhook/{$webhookId}?retrieve=queue", $body);
 
         $response = json_decode($response->getBody(), $hydrate);
 
         return $response;
     }
 
-    public function orderDetails($orderId, $hydrate = false)
+    public function updateWebhook($webhookId, $event, $url, $hydrate = false)
     {
         $body = [
             'headers' => [
                 'Content-type' => 'application/json',
                 'X-Delyvax-Access-Token' => config('delyva.delyva_access_token')
+            ],
+            'json'    => [
+                'event' => $event,
+                'url' => $url
             ]
         ];
 
@@ -90,7 +88,7 @@ class CreateOrder
             'verify' => false
         ]);
 
-        $response = $client->request('GET', config('delyva.delyva_endpoint') . "order/{$orderId}", $body);
+        $response = $client->request('PATCH', config('delyva.delyva_endpoint') . "webhook/{$webhookId}?retrieve=queue", $body);
 
         $response = json_decode($response->getBody(), $hydrate);
 
