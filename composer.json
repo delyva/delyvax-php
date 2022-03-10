@@ -24,14 +24,8 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Delyvax\\Delyva\\DelyvaServiceProvider"
+                "Firdausishaddin\\Delyva\\DelyvaServiceProvider"
             ]
         }
-    },
-    "repositories": [
-        {
-            "type": "path",
-            "url": "../../delyvax/delyva"
-        }
-    ]
+    }
 }
