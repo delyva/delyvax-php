@@ -1,6 +1,6 @@
 <?php
 
-namespace Delyvax\Services;
+namespace DelyvaX\Services;
 
 use GuzzleHttp\Client;
 
