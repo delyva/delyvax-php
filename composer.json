@@ -24,7 +24,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "DelyvaX\\DelyvaServiceProvider"
+                "DelyvaX\\Delyva\\DelyvaServiceProvider"
             ]
         }
     }
