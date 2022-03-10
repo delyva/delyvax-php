@@ -21,7 +21,7 @@ DelyvaX Delyva
 The recommended way to install Rekamy Generator is through Composer.
 
 ```bash
-composer require delyva/delyva
+composer require delyvax/delyva
 ```
 
 Next, you will need to publish the generator's config file by running :

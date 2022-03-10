@@ -1,6 +1,6 @@
 {
     "name": "delyvax/delyva",
-    "description": "Timezone List Plugin",
+    "description": "DelyvaX",
     "license": "MIT",
     "type": "library",
     "keywords": [
@@ -24,7 +24,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "DelyvaX\\Delyva\\DelyvaServiceProvider"
+                "Delyvax\\Delyva\\DelyvaServiceProvider"
             ]
         }
     }
