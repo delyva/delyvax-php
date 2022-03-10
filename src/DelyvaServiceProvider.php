@@ -1,6 +1,6 @@
 <?php
 
-namespace DelyvaX;
+namespace DelyvaX\Delyva;
 
 use Illuminate\Support\ServiceProvider;
 
