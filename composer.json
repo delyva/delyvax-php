@@ -27,5 +27,11 @@
                 "Delyvax\\Delyva\\DelyvaServiceProvider"
             ]
         }
-    }
+    },
+    "repositories": [
+        {
+            "type": "path",
+            "url": "../../delyvax/delyva"
+        }
+    ]
 }
