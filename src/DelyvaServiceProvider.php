@@ -1,10 +1,10 @@
 <?php
 
-namespace Delyvax\Saas;
+namespace Delyvax\Delyva;
 
 use Illuminate\Support\ServiceProvider;
 
-class SaasServiceProvider extends ServiceProvider
+class DelyvaServiceProvider extends ServiceProvider
 {
     public function boot()
     {
@@ -15,7 +15,7 @@ class SaasServiceProvider extends ServiceProvider
     {
         $this->publishes([
             __DIR__ . '/config/delyva.php' => config_path('delyva.php'),
-        ], 'saas');
+        ], 'delyva');
 
         $this->mergeConfigFrom(
             __DIR__ . '/config/delyva.php', 'delyva'

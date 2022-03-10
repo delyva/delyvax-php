@@ -1,5 +1,5 @@
 {
-    "name": "delyvax/saas",
+    "name": "delyvax/delyva",
     "description": "DelyvaX",
     "license": "MIT",
     "type": "library",
@@ -18,13 +18,13 @@
     "minimum-stability": "dev",
     "autoload": {
         "psr-4": {
-            "DelyvaX\\Saas\\": "src/"
+            "DelyvaX\\Delyva\\": "src/"
         }
     },
     "extra": {
         "laravel": {
             "providers": [
-                "DelyvaX\\Saas\\SaasServiceProvider"
+                "DelyvaX\\Delyva\\DelyvaServiceProvider"
             ]
         }
     }

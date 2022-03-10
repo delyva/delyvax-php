@@ -1,8 +1,8 @@
-# DelyvaX SaaS
+# DelyvaX Delyva
 
 ## Introduction
 
-DelyvaX SaaS
+DelyvaX Delyva
 
 ## Table Of Contents
 
@@ -27,7 +27,7 @@ composer require delyva/saas
 Next, you will need to publish the generator's config file by running :
 
 ```bash
-php artisan vendor:publish --provider "DelyvaX\Saas\SaasServiceProvider"
+php artisan vendor:publish --provider "DelyvaX\Delyva\DelyvaServiceProvider"
 ```
 
 ## Configuration
@@ -71,7 +71,7 @@ Update the configuration file based on your needs.
 (Optional) Publish configuration :
 
 ```bash
-php artisan vendor:publish --tag="saas"
+php artisan vendor:publish --tag="delyva"
 ```
 
 ## License
