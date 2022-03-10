@@ -1,8 +1,8 @@
-# DelyvaX SaaS
+# DelyvaX Delyva
 
 ## Introduction
 
-DelyvaX SaaS
+DelyvaX Delyva
 
 ## Table Of Contents
 
@@ -21,13 +21,13 @@ DelyvaX SaaS
 The recommended way to install Rekamy Generator is through Composer.
 
 ```bash
-composer require delyva/saas
+composer require delyva/delyva
 ```
 
 Next, you will need to publish the generator's config file by running :
 
 ```bash
-php artisan vendor:publish --provider "DelyvaX\Saas\SaasServiceProvider"
+php artisan vendor:publish --provider "DelyvaX\Delyva\DelyvaServiceProvider"
 ```
 
 ## Configuration
@@ -71,9 +71,9 @@ Update the configuration file based on your needs.
 (Optional) Publish configuration :
 
 ```bash
-php artisan vendor:publish --tag="saas"
+php artisan vendor:publish --tag="delyva"
 ```
 
 ## License
 
-DelyvaX SaaS is open-sourced software licensed under the MIT license
+DelyvaX Delyva is open-sourced software licensed under the MIT license

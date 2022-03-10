@@ -1,17 +1,17 @@
 <?php
 
-namespace Delyvax\Saas\Http\Traits;
+namespace Delyvax\Delyva\Services;
 
 use GuzzleHttp\Client;
 
-trait Webhook
+class Webhook
 {
-    public function subscribe($data, $hydrate = false)
+    public static function subscribe($data, $hydrate = false)
     {
         $body = [
             'headers' => [
                 'Content-type' => 'application/json',
-                'X-Delyvax-Access-Token' => config('saas.delyva_access_token')
+                'X-Delyvax-Access-Token' => config('delyva.delyva_access_token')
             ],
             'json'    => $data
         ];
@@ -20,19 +20,19 @@ trait Webhook
             'verify' => false
         ]);
 
-        $response = $client->request('POST', config('saas.delyva_endpoint') . 'webhook', $body);
+        $response = $client->request('POST', config('delyva.delyva_endpoint') . 'webhook', $body);
 
         $response = json_decode($response->getBody(), $hydrate);
 
         return $response;
     }
 
-    public function listWebhooks($hydrate = false)
+    public static function listWebhooks($hydrate = false)
     {
         $body = [
             'headers' => [
                 'Content-type' => 'application/json',
-                'X-Delyvax-Access-Token' => config('saas.delyva_access_token')
+                'X-Delyvax-Access-Token' => config('delyva.delyva_access_token')
             ]
         ];
 
@@ -40,19 +40,19 @@ trait Webhook
             'verify' => false
         ]);
 
-        $response = $client->request('GET', config('saas.delyva_endpoint') . 'webhook', $body);
+        $response = $client->request('GET', config('delyva.delyva_endpoint') . 'webhook', $body);
 
         $response = json_decode($response->getBody(), $hydrate);
 
         return $response;
     }
 
-    public function webhook($webhookId, $event, $url, $hydrate = false)
+    public static function webhook($webhookId, $event, $url, $hydrate = false)
     {
         $body = [
             'headers' => [
                 'Content-type' => 'application/json',
-                'X-Delyvax-Access-Token' => config('saas.delyva_access_token')
+                'X-Delyvax-Access-Token' => config('delyva.delyva_access_token')
             ],
             'json'    => [
                 'event' => $event,
@@ -64,19 +64,19 @@ trait Webhook
             'verify' => false
         ]);
 
-        $response = $client->request('GET', config('saas.delyva_endpoint') . "webhook/{$webhookId}?retrieve=queue", $body);
+        $response = $client->request('GET', config('delyva.delyva_endpoint') . "webhook/{$webhookId}?retrieve=queue", $body);
 
         $response = json_decode($response->getBody(), $hydrate);
 
         return $response;
     }
 
-    public function updateWebhook($webhookId, $event, $url, $hydrate = false)
+    public static function updateWebhook($webhookId, $event, $url, $hydrate = false)
     {
         $body = [
             'headers' => [
                 'Content-type' => 'application/json',
-                'X-Delyvax-Access-Token' => config('saas.delyva_access_token')
+                'X-Delyvax-Access-Token' => config('delyva.delyva_access_token')
             ],
             'json'    => [
                 'event' => $event,
@@ -88,7 +88,7 @@ trait Webhook
             'verify' => false
         ]);
 
-        $response = $client->request('PATCH', config('saas.delyva_endpoint') . "webhook/{$webhookId}?retrieve=queue", $body);
+        $response = $client->request('PATCH', config('delyva.delyva_endpoint') . "webhook/{$webhookId}?retrieve=queue", $body);
 
         $response = json_decode($response->getBody(), $hydrate);
 

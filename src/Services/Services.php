@@ -1,12 +1,12 @@
 <?php
 
-namespace Delyvax\Saas\Http\Traits;
+namespace Delyvax\Delyva\Services;
 
 use GuzzleHttp\Client;
 
 /**
  * @method Services
- * 
+ *
  * @property int $id
  * @property string|null $companyId | Optional if jwt token sent
  * @property array $waypoint | waypoint object
@@ -25,14 +25,14 @@ use GuzzleHttp\Client;
  * @property array/null $serviceAddon | Service addon object
  */
 
-trait Services
+class Services
 {
-    public function priceQuote($data, $hydrate = false)
+    public static function priceQuote($data, $hydrate = false)
     {
         $body = [
             'headers' => [
                 'Content-type' => 'application/json',
-                'X-Delyvax-Access-Token' => config('saas.delyva_access_token')
+                'X-Delyvax-Access-Token' => config('delyva.delyva_access_token')
             ],
             'json'    => $data
         ];
@@ -41,7 +41,7 @@ trait Services
             'verify' => false
         ]);
 
-        $response = $client->request('POST', config('saas.delyva_endpoint') . "service/instantQuote", $body);
+        $response = $client->request('POST', config('delyva.delyva_endpoint') . "service/instantQuote", $body);
 
         $response = json_decode($response->getBody(), $hydrate);
 
