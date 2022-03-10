@@ -6,7 +6,7 @@ use GuzzleHttp\Client;
 
 /**
  * @method Services
- * 
+ *
  * @property int $id
  * @property string|null $companyId | Optional if jwt token sent
  * @property array $waypoint | waypoint object
@@ -32,7 +32,7 @@ class Services
         $body = [
             'headers' => [
                 'Content-type' => 'application/json',
-                'X-Delyvax-Access-Token' => config('saas.delyva_access_token')
+                'X-Delyvax-Access-Token' => config('delyva.delyva_access_token')
             ],
             'json'    => $data
         ];
@@ -41,7 +41,7 @@ class Services
             'verify' => false
         ]);
 
-        $response = $client->request('POST', config('saas.delyva_endpoint') . "service/instantQuote", $body);
+        $response = $client->request('POST', config('delyva.delyva_endpoint') . "service/instantQuote", $body);
 
         $response = json_decode($response->getBody(), $hydrate);
 

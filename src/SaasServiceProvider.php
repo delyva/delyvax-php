@@ -8,17 +8,17 @@ class SaasServiceProvider extends ServiceProvider
 {
     public function boot()
     {
-        // 
+        //
     }
 
     public function register()
     {
         $this->publishes([
-            __DIR__ . '/config/saas.php' => config_path('saas.php'),
+            __DIR__ . '/config/delyva.php' => config_path('delyva.php'),
         ], 'saas');
 
         $this->mergeConfigFrom(
-            __DIR__ . '/config/saas.php', 'saas'
+            __DIR__ . '/config/delyva.php', 'delyva'
         );
     }
 }

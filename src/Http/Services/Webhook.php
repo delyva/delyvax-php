@@ -11,7 +11,7 @@ class Webhook
         $body = [
             'headers' => [
                 'Content-type' => 'application/json',
-                'X-Delyvax-Access-Token' => config('saas.delyva_access_token')
+                'X-Delyvax-Access-Token' => config('delyva.delyva_access_token')
             ],
             'json'    => $data
         ];
@@ -20,7 +20,7 @@ class Webhook
             'verify' => false
         ]);
 
-        $response = $client->request('POST', config('saas.delyva_endpoint') . 'webhook', $body);
+        $response = $client->request('POST', config('delyva.delyva_endpoint') . 'webhook', $body);
 
         $response = json_decode($response->getBody(), $hydrate);
 
@@ -32,7 +32,7 @@ class Webhook
         $body = [
             'headers' => [
                 'Content-type' => 'application/json',
-                'X-Delyvax-Access-Token' => config('saas.delyva_access_token')
+                'X-Delyvax-Access-Token' => config('delyva.delyva_access_token')
             ]
         ];
 
@@ -40,7 +40,7 @@ class Webhook
             'verify' => false
         ]);
 
-        $response = $client->request('GET', config('saas.delyva_endpoint') . 'webhook', $body);
+        $response = $client->request('GET', config('delyva.delyva_endpoint') . 'webhook', $body);
 
         $response = json_decode($response->getBody(), $hydrate);
 
@@ -52,7 +52,7 @@ class Webhook
         $body = [
             'headers' => [
                 'Content-type' => 'application/json',
-                'X-Delyvax-Access-Token' => config('saas.delyva_access_token')
+                'X-Delyvax-Access-Token' => config('delyva.delyva_access_token')
             ],
             'json'    => [
                 'event' => $event,
@@ -64,7 +64,7 @@ class Webhook
             'verify' => false
         ]);
 
-        $response = $client->request('GET', config('saas.delyva_endpoint') . "webhook/{$webhookId}?retrieve=queue", $body);
+        $response = $client->request('GET', config('delyva.delyva_endpoint') . "webhook/{$webhookId}?retrieve=queue", $body);
 
         $response = json_decode($response->getBody(), $hydrate);
 
@@ -76,7 +76,7 @@ class Webhook
         $body = [
             'headers' => [
                 'Content-type' => 'application/json',
-                'X-Delyvax-Access-Token' => config('saas.delyva_access_token')
+                'X-Delyvax-Access-Token' => config('delyva.delyva_access_token')
             ],
             'json'    => [
                 'event' => $event,
@@ -88,7 +88,7 @@ class Webhook
             'verify' => false
         ]);
 
-        $response = $client->request('PATCH', config('saas.delyva_endpoint') . "webhook/{$webhookId}?retrieve=queue", $body);
+        $response = $client->request('PATCH', config('delyva.delyva_endpoint') . "webhook/{$webhookId}?retrieve=queue", $body);
 
         $response = json_decode($response->getBody(), $hydrate);
 

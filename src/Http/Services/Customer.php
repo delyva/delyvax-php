@@ -11,7 +11,7 @@ class Customer
         $body = [
             'headers' => [
                 'Content-type' => 'application/json',
-                'X-Delyvax-Access-Token' => config('saas.delyva_access_token')
+                'X-Delyvax-Access-Token' => config('delyva.delyva_access_token')
             ]
         ];
 
@@ -19,7 +19,7 @@ class Customer
             'verify' => false
         ]);
 
-        $response = $client->request('GET', config('saas.delyva_endpoint') . 'customer', $body);
+        $response = $client->request('GET', config('delyva.delyva_endpoint') . 'customer', $body);
 
         $response = json_decode($response->getBody(), $hydrate);
 
@@ -31,7 +31,7 @@ class Customer
         $body = [
             'headers' => [
                 'Content-type' => 'application/json',
-                'X-Delyvax-Access-Token' => config('saas.delyva_access_token')
+                'X-Delyvax-Access-Token' => config('delyva.delyva_access_token')
             ]
         ];
 
@@ -39,7 +39,7 @@ class Customer
             'verify' => false
         ]);
 
-        $response = $client->request('GET', config('saas.delyva_endpoint') . 'user', $body);
+        $response = $client->request('GET', config('delyva.delyva_endpoint') . 'user', $body);
 
         $response = json_decode($response->getBody(), $hydrate);
 

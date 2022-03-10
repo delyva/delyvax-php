@@ -8,12 +8,12 @@ class Tracking
 {
     public function orderHistory($consignmentNo, $hydrate = false)
     {
-        $url = config('saas.delyva_endpoint') . "order/track/{$consignmentNo}?companyId=" . config('saas.delyva_company_id');
+        $url = config('delyva.delyva_endpoint') . "order/track/{$consignmentNo}?companyId=" . config('delyva.delyva_company_id');
 
         $body = [
             'headers' => [
                 'Content-type' => 'application/json',
-                'X-Delyvax-Access-Token' => config('saas.delyva_access_token')
+                'X-Delyvax-Access-Token' => config('delyva.delyva_access_token')
             ]
         ];
 
@@ -33,10 +33,10 @@ class Tracking
         $body = [
             'headers' => [
                 'Content-type' => 'application/json',
-                'X-Delyvax-Access-Token' => config('saas.delyva_access_token')
+                'X-Delyvax-Access-Token' => config('delyva.delyva_access_token')
             ],
             'json'    => [
-                'companyId' => config('saas.delyva_company_id'),
+                'companyId' => config('delyva.delyva_company_id'),
                 'consignmentNo' => $consignmentNo,
                 'resultType' => 'latestFirst'
             ]
@@ -46,7 +46,7 @@ class Tracking
             'verify' => false
         ]);
 
-        $response = $client->request('POST', config('saas.delyva_endpoint') . 'order/track', $body);
+        $response = $client->request('POST', config('delyva.delyva_endpoint') . 'order/track', $body);
 
         $response = json_decode($response->getBody(), $hydrate);
 
