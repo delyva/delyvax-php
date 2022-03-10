@@ -1,6 +1,6 @@
 {
     "name": "delyvax/delyva",
-    "description": "DelyvaX",
+    "description": "Delyvax",
     "license": "MIT",
     "type": "library",
     "keywords": [
@@ -18,7 +18,7 @@
     "minimum-stability": "dev",
     "autoload": {
         "psr-4": {
-            "DelyvaX\\Delyva\\": "src/"
+            "Delyvax\\Delyva\\": "src/"
         }
     },
     "extra": {
