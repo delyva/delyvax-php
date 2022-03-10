@@ -1,10 +1,10 @@
 <?php
 
-namespace Delyvax\Saas\Http\Traits;
+namespace Delyvax\Saas\Http\Services;
 
 use GuzzleHttp\Client;
 
-trait Customer
+class Customer
 {
     public function customerDetails($hydrate = false)
     {

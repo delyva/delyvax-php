@@ -1,10 +1,10 @@
 <?php
 
-namespace Delyvax\Saas\Http\Traits;
+namespace Delyvax\Saas\Http\Services;
 
 use GuzzleHttp\Client;
 
-trait Tracking
+class Tracking
 {
     public function orderHistory($consignmentNo, $hydrate = false)
     {

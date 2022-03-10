@@ -1,13 +1,13 @@
 {
     "name": "delyvax/saas",
-    "description": "Timezone List Plugin",
+    "description": "DelyvaX",
     "license": "MIT",
     "type": "library",
     "keywords": [
     ],
     "require": {
         "php": "^7.2 || ^8.0",
-        "laravel/framework": "^8.0 || ^7.0"
+        "laravel/framework": "^9.0 || ^8.0 || ^7.0"
     },
     "authors": [
         {
@@ -24,7 +24,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "DelyvaX\\Saas\\TimezoneServiceProvider"
+                "DelyvaX\\Saas\\SaasServiceProvider"
             ]
         }
     }

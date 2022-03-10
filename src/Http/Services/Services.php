@@ -1,6 +1,6 @@
 <?php
 
-namespace Delyvax\Saas\Http\Traits;
+namespace Delyvax\Saas\Http\Services;
 
 use GuzzleHttp\Client;
 
@@ -25,7 +25,7 @@ use GuzzleHttp\Client;
  * @property array/null $serviceAddon | Service addon object
  */
 
-trait Services
+class Services
 {
     public function priceQuote($data, $hydrate = false)
     {
