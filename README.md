@@ -18,13 +18,11 @@ DelyvaX Delyva
 
 ## Installation
 
-The recommended way to install Rekamy Generator is through Composer.
-
 ```bash
 composer require delyvax/delyva
 ```
 
-Next, you will need to publish the generator's config file by running :
+Next, you will need to publish the delyva's config file by running :
 
 ```bash
 php artisan vendor:publish --provider "DelyvaX\Delyva\DelyvaServiceProvider"
@@ -72,6 +70,15 @@ Update the configuration file based on your needs.
 
 ```bash
 php artisan vendor:publish --tag="delyva"
+```
+
+Please replace with your own configuration in the .env file
+```bash
+DELYVA_ENDPOINT="https://api.delyva.app/v1.0/"
+DELYVA_ACCESS_TOKEN="DELYVA_ACCESS_TOKEN"
+DELYVA_COMPANY_CODE="DELYVA_COMPANY_CODE"
+DELYVA_COMPANY_ID="DELYVA_COMPANY_ID"
+DELYVA_CUSTOMER_ID="DELYVA_CUSTOMER_ID"
 ```
 
 ## License

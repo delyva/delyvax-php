@@ -33,7 +33,7 @@ class CreateOrder
     {
         $url = config('delyva.delyva_endpoint') . "order/{$orderId}/label?companyId=" . config('delyva.delyva_company_id');
 
-        echo "<script>window.open('" . $url . "', '_blank')</script>";
+        return $url;
     }
 
     public static function cancelOrder($orderId, $hydrate = false)
