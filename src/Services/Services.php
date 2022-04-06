@@ -29,7 +29,6 @@ class Services
 {
     public static function priceQuote($data, $hydrate = false)
     {
-        $data['customerId'] = config('delyva.delyva_customer_id');
 
         $body = [
             'headers' => [
